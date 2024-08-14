@@ -16,8 +16,5 @@ export const POST = async(req) =>{
   const {data} = await req.json()
 
   const items = await db.collection("items").find({}).toArray()
-  return NextResponse.json({
-    message: "successful shipment",
-    items
-  })
+  return NextResponse.json(items, {status: 201})
 }
